@@ -11,4 +11,5 @@ logo abaixo ou entre em contato via ayrton.tunes@outlook.com
 > <sub> Bimestre **::** Data de Aula **::** Arquivos </sub>
 
 **Bimestre 01** 
-> <sub> 03-24: Abstract Factory.</sub> 
+> <sub> 03-10: Singleton.</sub>  
+> <sub> 03-24: Abstract Factory.</sub>
