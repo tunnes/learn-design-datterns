@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css" />        
+        
+        <h:outputStylesheet library="css" name="styles.css"/>
+    </h:head>
+    <h:body>
+        <h:form>
+        <div class="wrapper-tv">
+            <div class="screen-wrapper">
+                <div class="container">
+                    <h:panelGroup id="canalImagem" class="wrapperImagem" style="background-image:url(#{controle.imagemCanal()})">
+                        <div class="overlay">AV-1</div>
+
+                          <p class="wrapperNumero"> 
+                            <h:outputText id="canalNumero" value="#{controle.numeroCanal()}"/>
+                        </p>
+                          <p class="wrapperNome"> 
+                            <h:outputText id="canalNome" value="#{controle.nomeCanal()}"/>
+                        </p>
+                    </h:panelGroup> 
+                </div>
+  
+            </div>
+            <p class="toshiba">TOSHIBA</p>
+            <div class="controler-wrapper">
+                <span class="button-television"  onclick="turnOff(this)" data-toggle="tooltip" data-placement="bottom" id="power" title="Ligar!" >
+                    <i class="fa fa-power-off" aria-hidden="true"></i>
+                </span>
+              
+                
+                <h:commandLink  class="button-television" action="#{controle.canaisInfantis()}" value="">
+                    <f:ajax render="canalNome canalImagem canalNumero"/>
+                    <i class="fa fa-child" aria-hidden="true"></i>
+                </h:commandLink>
+                
+                <h:commandLink  class="button-television" action="#{controle.canaisEsportivos()}" value="">
+                      <f:ajax render="canalNome canalImagem canalNumero"/>
+                      <i class="fa fa-trophy" aria-hidden="true"></i>
+                </h:commandLink>                
+                
+                <h:commandLink  class="button-television" action="#{controle.avancar()}" value="">
+                      <f:ajax render="canalNome canalImagem canalNumero"/>
+                      <i class="fa fa-step-forward" aria-hidden="true"></i>
+                </h:commandLink>                                
+                
+                <h:commandLink  class="button-television" action="#{controle.retornar()}" value="">
+                      <f:ajax render="canalNome canalImagem canalNumero"/>
+                      <i class="fa fa-step-backward" aria-hidden="true"></i>
+                </h:commandLink>                                
+            </div>
+        </div>
+        <script>
+            $(document).ready(function(){
+                $('[data-toggle="tooltip"]').tooltip();   
+            });
+            function turnOff(){
+                $('#power').hasClass('on') ? $('#power').removeClass('on') : $('#power').addClass('on');
+            }
+        </script>
+            </h:form>
+    </h:body>
+</html>
+

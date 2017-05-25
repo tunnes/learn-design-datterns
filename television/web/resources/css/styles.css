@@ -1,0 +1,455 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 01/03/2017, 22:16:14
+    Author     : tunnes (Ayrton Felipe Souza Tunes)
+*/
+
+@import url('https://fonts.googleapis.com/css?family=Keania+One');
+
+body {
+  color: white;
+  padding-top: 20px;
+  padding-left: 20px;
+}
+
+#switch {
+  display: none;
+}
+
+.switch-label {
+  display: inline-block;
+  cursor: pointer;
+  background: #fff;
+  color: #111;
+  padding: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-radius: 5px;
+  margin-top: 10px;
+  box-shadow: 0 2px #666;
+}
+.switch-label::after {
+  content: "on";
+}
+.switch-label::before {
+  content: " ";
+  display: inline-block;
+  border-radius: 100%;
+  width: 10px;
+  height: 10px;
+  background: #003321;
+  margin-right: 10px;
+  border: 1px solid #111;
+}
+.switch-label:active {
+  box-shadow: none;
+  transform: translate3d(0, 2px, 0);
+}
+
+#switch:checked + .switch-label::before {
+  background: #22ff55;
+}
+#switch:checked + .switch-label::after {
+  content: "off";
+}
+
+@keyframes flicker {
+  0% {
+    opacity: 0.088;
+  }
+  5% {
+    opacity: 0.37795;
+  }
+  10% {
+    opacity: 0.64024;
+  }
+  15% {
+    opacity: 0.1715;
+  }
+  20% {
+    opacity: 0.7155;
+  }
+  25% {
+    opacity: 0.22675;
+  }
+  30% {
+    opacity: 0.42603;
+  }
+  35% {
+    opacity: 0.20573;
+  }
+  40% {
+    opacity: 0.21726;
+  }
+  45% {
+    opacity: 0.11002;
+  }
+  50% {
+    opacity: 0.49587;
+  }
+  55% {
+    opacity: 0.35284;
+  }
+  60% {
+    opacity: 0.26024;
+  }
+  65% {
+    opacity: 0.20221;
+  }
+  70% {
+    opacity: 0.32629;
+  }
+  75% {
+    opacity: 0.01599;
+  }
+  80% {
+    opacity: 0.34152;
+  }
+  85% {
+    opacity: 0.7381;
+  }
+  90% {
+    opacity: 0.2229;
+  }
+  95% {
+    opacity: 0.5707;
+  }
+  100% {
+    opacity: 0.769;
+  }
+}
+.container {
+    width: 95%;
+    /*background: #121010;*/
+        background: #1f271e;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    position: relative;
+    /* overflow: hidden; */
+    height: 490px;
+    border-radius: 2% / 12%;
+    margin: 5px auto;
+    text-align: center;
+    text-indent: .1em;
+    border-color: #0c0c0c;
+}
+.container::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(18, 16, 16, 0.1);
+  opacity: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+/*.container::before {*/
+/*    content: " ";*/
+/*    display: block;*/
+/*    position: absolute;*/
+/*    top: 0;*/
+/*    left: 0;*/
+/*    bottom: 0;*/
+/*    right: 0;*/
+/*    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));*/
+/*    z-index: 2;*/
+/*    background-size: 100% 2px, 3px 100%;*/
+/*    pointer-events: none;*/
+/*    top: 9%;*/
+/*    bottom: 9%;*/
+/*    right: -5%;*/
+/*    left: -5%;*/
+/*    background-color: inherit;*/
+/*    border-radius: 5% / 50%;*/
+/*}*/
+.container::before{
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    z-index: 2;
+    background-size: 100% 2px, 3px 100%;
+    pointer-events: none;
+    top: 0%;
+    bottom: 0%;
+    right: -5%;
+    left: -5%;
+    background-color: inherit;
+    border-radius: 2% / 56%;
+}
+
+#switch:checked ~ .container::after {
+  animation: flicker 0.15s infinite;
+}
+
+@keyframes turn-on {
+  0% {
+    transform: scale(1, 0.8) translate3d(0, 0, 0);
+    -webkit-filter: brightness(30);
+    filter: brightness(30);
+    opacity: 1;
+  }
+  3.5% {
+    transform: scale(1, 0.8) translate3d(0, 100%, 0);
+  }
+  3.6% {
+    transform: scale(1, 0.8) translate3d(0, -100%, 0);
+    opacity: 1;
+  }
+  9% {
+    transform: scale(1.3, 0.6) translate3d(0, 100%, 0);
+    -webkit-filter: brightness(30);
+    filter: brightness(30);
+    opacity: 0;
+  }
+  11% {
+    transform: scale(1, 1) translate3d(0, 0, 0);
+    -webkit-filter: contrast(0) brightness(0);
+    filter: contrast(0) brightness(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1, 1) translate3d(0, 0, 0);
+    -webkit-filter: contrast(1) brightness(1.2) saturate(1.3);
+    filter: contrast(1) brightness(1.2) saturate(1.3);
+    opacity: 1;
+  }
+}
+@keyframes turn-off {
+  0% {
+    transform: scale(1, 1.3) translate3d(0, 0, 0);
+    -webkit-filter: brightness(1);
+    filter: brightness(1);
+    opacity: 1;
+  }
+  60% {
+    transform: scale(1.3, 0.001) translate3d(0, 0, 0);
+    -webkit-filter: brightness(10);
+    filter: brightness(10);
+  }
+  100% {
+    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    transform: scale(0, 0.0001) translate3d(0, 0, 0);
+    -webkit-filter: brightness(50);
+    filter: brightness(50);
+  }
+}
+.screen {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+#switch ~ .container > .screen {
+  animation: turn-off 0.55s cubic-bezier(0.23, 1, 0.32, 1);
+  animation-fill-mode: forwards;
+}
+
+#switch:checked ~ .container > .screen {
+  animation: turn-on 4s linear;
+  animation-fill-mode: forwards;
+}
+
+@keyframes overlay-anim {
+  0% {
+    visibility: hidden;
+  }
+  20% {
+    visibility: hidden;
+  }
+  21% {
+    visibility: visible;
+  }
+  100% {
+    visibility: hidden;
+  }
+}
+.overlay {
+  color: #00FF00;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 60px;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+#switch:checked ~ .container .overlay {
+  animation: overlay-anim 5s linear;
+  animation-fill-mode: forwards;
+}
+
+/* meu estilo maneiro */
+
+span {
+    color: black;
+}
+.screen-wrapper{
+    width: 99%;
+    background: #000000;
+    border-radius: 20px;
+    padding: 2px;
+}
+.controler-wrapper{
+    margin-top: 15px;
+    /* border: 1px outset #0c0c12; */
+    width: 94%;
+    margin-left: 16px;
+    /* padding: 10px; */
+    display: inline-block;
+    border-radius: 7px;
+}
+.wrapper-tv{
+    width: 90%;
+    margin: auto;
+    background-color: rgb(21, 21, 21);
+    padding: 31px;
+    border-radius: 30px;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    padding-bottom: 0px;
+}
+
+
+.button-television {
+    margin-left: 10px;
+    float: right;
+    height: 55px;
+    width: 45px;
+    display: inline-block;
+    border: 1px solid #0a0a0a;
+    text-align: center;
+    padding-top: 10px;
+    border-radius: 18%;
+    box-shadow: 1px 1px 1px #000000;
+    cursor: pointer;
+    color: rgba(216, 215, 205, 0.39);
+    text-transform: uppercase;
+    font-size: 19px;
+    border-bottom-width: 0px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+.button-television:first-child{
+    float: left;
+    margin-left: 0px;
+    width: 70px;
+    transition: all 0.9s ease;
+    color: rgb(173, 5, 5);
+    text-shadow: 1px 1px 7px rgba(185, 94, 94, 0.84);
+}
+.button-television:first-child:hover{
+    color: #08e408;
+    text-shadow: 1px 1px 7px rgba(75, 214, 123, 0.86);
+}
+.on{
+  color: #08e408 !important;
+  text-shadow: 1px 1px 7px rgba(75, 214, 123, 0.86)  !important;
+}
+
+.toshiba {
+    margin: 0 auto;
+    text-align: center;
+    font-weight: 800;
+    margin-top: 10px;
+    font-size: 16px;
+    color: gainsboro;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.86);
+}
+
+
+@media only screen and (min-width: 1000px) {
+.wrapper-tv {
+    width: 60%;
+  }
+}
+@media only screen and (max-width: 650px) {
+  .container{
+    height: 410px;
+  }
+}
+.container {
+  background: #1f271e;
+  margin-top: 10px;
+  position: relative;
+  overflow: hidden;
+  padding-left: 0px;
+
+}
+.container::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(18, 16, 16, 0.1);
+  opacity: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+.container::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  z-index: 2;
+  background-size: 100% 2px, 3px 100%;
+  pointer-events: none;
+}   
+.wrapperImagem{
+    display: block;
+    width: 107%;
+    height: 100%;
+    background-color: red;
+    background-size: cover;
+    
+}
+.wrapperImagem:before {
+    content: '';
+    width: 135%;
+    height: 100%;
+    position: absolute;
+    background: rgba(116, 117, 117, 0.47);
+    right: 0;
+    z-index: 0;
+}
+p.wrapperNumero {
+    font-family: 'Keania One', cursive;
+    position: absolute;
+    bottom: 15px;
+    font-size: 40px;
+    right: 25px;
+    text-transform: uppercase;
+}
+p.wrapperNome {
+    font-family: 'Keania One', cursive;
+    position: absolute;
+    bottom: 15px;
+    left: 20px;
+    font-size: 40px;
+    text-transform: uppercase;
+}
+p span{
+    color: #00ff19;    
+}
+
+button, html input[type=button], input[type=reset], input[type=submit]{
+    color:black;
+}
