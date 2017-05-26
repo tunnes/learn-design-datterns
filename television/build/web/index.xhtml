@@ -51,6 +51,11 @@
                       <i class="fa fa-trophy" aria-hidden="true"></i>
                 </h:commandLink>                
                 
+                <h:commandLink  class="button-television" action="#{controle.canaisEducativos()}" value="">
+                      <f:ajax render="canalNome canalImagem canalNumero"/>
+                      <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                </h:commandLink>
+                
                 <h:commandLink  class="button-television" action="#{controle.avancar()}" value="">
                       <f:ajax render="canalNome canalImagem canalNumero"/>
                       <i class="fa fa-step-forward" aria-hidden="true"></i>

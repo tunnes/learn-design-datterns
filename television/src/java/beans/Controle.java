@@ -1,6 +1,7 @@
 package beans;
 
 import iterator.AgregadoDeCanais;
+import iterator.CanaisEducativos;
 import iterator.CanaisEsportes;
 import iterator.CanaisInfantis;
 import iterator.CanaisSeries;
@@ -24,7 +25,7 @@ public class Controle implements Serializable{
     }
     
     public void canaisEducativos(){
-        mudarGenero(new CanaisEsportes());
+        mudarGenero(new CanaisEducativos());
     }
     
     public void canaisEsportivos(){
@@ -38,21 +39,16 @@ public class Controle implements Serializable{
     public String canaisSeries(){
         mudarGenero(new CanaisSeries());
         return null;
-    }    
-    
+    }      
     public String nomeCanal() {
-
-        return iterador.currentItem().mostrarNome();
-        
+        return iterador.currentItem().mostrarNome();        
     }
     public String numeroCanal() {
         return iterador.currentItem().mostrarNumero();
     }    
     public String imagemCanal() {
         return  iterador.currentItem().mostrarImagem();
-    }        
-    
-    
+    }  
     
     public void avancar() {
         if(!iterador.isDone()){
