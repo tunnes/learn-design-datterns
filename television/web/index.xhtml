@@ -36,6 +36,10 @@
                     <i class="fa fa-power-off" aria-hidden="true"></i>
                 </span>
               
+                <h:commandLink  class="button-television" action="#{controle.canaisSeries()}" value="">
+                    <f:ajax render="canalNome canalImagem canalNumero"/>
+                    <i class="fa fa-film" aria-hidden="true"></i>
+                </h:commandLink>
                 
                 <h:commandLink  class="button-television" action="#{controle.canaisInfantis()}" value="">
                     <f:ajax render="canalNome canalImagem canalNumero"/>

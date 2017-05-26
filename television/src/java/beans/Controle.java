@@ -3,6 +3,7 @@ package beans;
 import iterator.AgregadoDeCanais;
 import iterator.CanaisEsportes;
 import iterator.CanaisInfantis;
+import iterator.CanaisSeries;
 import iterator.IteradorInterface;
 import java.io.Serializable;
 
@@ -32,6 +33,10 @@ public class Controle implements Serializable{
     
     public String canaisInfantis(){
         mudarGenero(new CanaisInfantis());
+        return null;
+    }
+    public String canaisSeries(){
+        mudarGenero(new CanaisSeries());
         return null;
     }    
     
